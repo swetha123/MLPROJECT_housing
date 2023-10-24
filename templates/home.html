@@ -1,4 +1,108 @@
 <!DOCTYPE html>
-<h1>
-    hello world 
-</h1>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Boston House Price Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="Id" placeholder="Id" required="required" /><br>
+    	<input type="text" name="MSSubClass" placeholder="MSSubClass" required="required" /><br>
+        <input type="text" name="MSZoning" placeholder="MSZoning" required="required" /><br>
+        <input type="text" name="LotFrontage" placeholder="LotFrontage" required="required" /><br>
+        <input type="text" name="LotArea" placeholder="LotArea" required="required" /><br>
+        <input type="text" name="Street" placeholder="Street" required="required" /><br>
+        <input type="text" name="LotShape" placeholder="LotShape" required="required" /><br>
+        <input type="text" name="LandContour" placeholder="LandContour" required="required" /><br>
+        <input type="text" name="LotConfig" placeholder="LotConfig" required="required" /><br>
+        <input type="text" name="LandSlope" placeholder="LandSlope" required="required" /><br>
+        <input type="text" name="Neighborhood" placeholder="Neighborhood" required="required" /><br>
+        <input type="text" name="Condition1" placeholder="Condition1" required="required" /><br>
+        <input type="text" name="Condition2" placeholder="Condition2" required="required" /><br>
+        <input type="text" name="BldgType" placeholder="BldgType" required="required" /><br>
+    	<input type="text" name="HouseStyle" placeholder="HouseStyle" required="required" /><br>
+        <input type="text" name="OverallQual" placeholder="OverallQual" required="required" /><br>
+        <input type="text" name="OverallCond" placeholder="OverallCond" required="required" /><br>
+        <input type="text" name="YearBuilt" placeholder="YearBuilt" required="required" /><br>
+        <input type="text" name="YearRemodAdd" placeholder="YearRemodAdd" required="required" /><br>
+        <input type="text" name="RoofStyle" placeholder="RoofStyle" required="required" /><br>
+        <input type="text" name="RoofMatl" placeholder="RoofMatl" required="required" /><br>
+        <input type="text" name="Exteriot1st" placeholder="Exteriot1st" required="required" /><br>
+        <input type="text" name="Exteriot2nd" placeholder="Exteriot2nd" required="required" /><br>
+        <input type="text" name="MasVnrType" placeholder="MasVnrType" required="required" /><br>
+        <input type="text" name="MasVnrArea" placeholder="MasVnrArea" required="required" /><br>
+        <input type="text" name="ExterQual" placeholder="ExterQual" required="required" /><br>
+        <input type="text" name="ExterCond" placeholder="ExterCond" required="required" /><br>
+    	<input type="text" name="Foundation" placeholder="Foundation" required="required" /><br>
+        <input type="text" name="BsmtQual" placeholder="BsmtQual" required="required" /><br>
+        <input type="text" name="BsmtCond" placeholder="BsmtCond" required="required" /><br>
+        <input type="text" name="BsmtExposure" placeholder="BsmtExposure" required="required" /><br>
+        <input type="text" name="BsmtFinType1" placeholder="BsmtFinType1" required="required" /><br>
+        <input type="text" name="BsmtFinSF1" placeholder="BsmtFinSF1" required="required" /><br>
+        <input type="text" name="BsmtFinTyp2" placeholder="BsmtFinTyp2" required="required" /><br>
+        <input type="text" name="BsmtFinSF2" placeholder="BsmtFinSF2" required="required" /><br>
+        <input type="text" name="BsmtUnfSF" placeholder="BsmtUnfSF" required="required" /><br>
+        <input type="text" name="PTRATIO" placeholder="PTRATIO" required="required" /><br>
+        <input type="text" name="TotalBsmtSF" placeholder="TotalBsmtSF" required="required" /><br>
+        <input type="text" name="Heating" placeholder="Heating" required="required" /><br>
+        <input type="text" name="HeatingQC" placeholder="HeatingQC" required="required" /><br>
+    	<input type="text" name="CentralAir" placeholder="CentralAir" required="required" /><br>
+        <input type="text" name="1stFlrSF" placeholder="1stFlrSF" required="required" /><br>
+        <input type="text" name="2ndFlrSF" placeholder="2ndFlrSF" required="required" /><br>
+        <input type="text" name="LowQualFinSF" placeholder="LowQualFinSF" required="required" /><br>
+        <input type="text" name="GrLivArea" placeholder="GrLivArea" required="required" /><br>
+        <input type="text" name="BsmtFullBath" placeholder="BsmtFullBath" required="required" /><br>
+        <input type="text" name="BsmtHalfBat" placeholder="BsmtHalfBat" required="required" /><br>
+        <input type="text" name="FullBath" placeholder="FullBath" required="required" /><br>
+        <input type="text" name="HalfBath" placeholder="HalfBath" required="required" /><br>
+        <input type="text" name="BedroomAbvGr" placeholder="BedroomAbvGr" required="required" /><br>
+        <input type="text" name="KitchenAbvGr" placeholder="KitchenAbvGr" required="required" /><br>
+        <input type="text" name="KitchenQual" placeholder="KitchenQual" required="required" /><br>
+    	<input type="text" name="TotRmsAbvGrd" placeholder="TotRmsAbvGrd" required="required" /><br>
+        <input type="text" name="Functional" placeholder="Functional" required="required" /><br>
+        <input type="text" name="Fireplaces" placeholder="Fireplaces" required="required" /><br>
+        <input type="text" name="GarageType" placeholder="GarageType" required="required" /><br>
+        <input type="text" name="GarageYrBlt" placeholder="GarageYrBlt" required="required" /><br>
+        <input type="text" name="GarageFinish" placeholder="GarageFinish" required="required" /><br>
+        <input type="text" name="GarageCars" placeholder="GarageCars" required="required" /><br>
+        <input type="text" name="GarageArea" placeholder="GarageArea" required="required" /><br>
+        <input type="text" name="GarageQual" placeholder="GarageQual" required="required" /><br>
+        <input type="text" name="GarageCond" placeholder="GarageCond" required="required" /><br>
+        <input type="text" name="PavedDrive" placeholder="PavedDrive" required="required" /><br>
+        <input type="text" name="WoodDeckSF" placeholder="WoodDeckSF" required="required" /><br>
+        <input type="text" name="OpenPorchSF" placeholder="OpenPorchSF" required="required" /><br>
+    	<input type="text" name="EnclosedPorch" placeholder="EnclosedPorch" required="required" /><br>
+        <input type="text" name="3SsnPorch" placeholder="3SsnPorch" required="required" /><br>
+        <input type="text" name="ScreenPorch" placeholder="ScreenPorch" required="required" /><br>
+        <input type="text" name="PoolArea" placeholder="PoolArea" required="required" /><br>
+        <input type="text" name="MiscVal" placeholder="MiscVal" required="required" /><br>
+        <input type="text" name="MoSold" placeholder="MoSold" required="required" /><br>
+        <input type="text" name="YrSold" placeholder="YrSold" required="required" /><br>
+        <input type="text" name="SaleType" placeholder="SaleType" required="required" /><br>
+        <input type="text" name="SaleCondition" placeholder="SaleCondition" required="required" /><br>
+       
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+  
+   
+ </div>
+ {{prediction_text}}
+
+</body>
+</html>
